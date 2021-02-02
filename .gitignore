@@ -1,0 +1,5 @@
+# Fichier contenant les tokens
+.env
+
+# Dossier de cache python
+__pycache__
