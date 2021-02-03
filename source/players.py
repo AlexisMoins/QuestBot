@@ -1,6 +1,6 @@
 # players.py
 import yaml
-from source.utils import Utils
+from .utils import Utils
 
 class Players():
 

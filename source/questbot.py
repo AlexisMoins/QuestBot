@@ -1,8 +1,8 @@
 # bot.py
 import discord
-from source.utils import Utils
-from source.players import Players
-from source.classes import Classes
+from .utils import Utils
+from .players import Players
+from .classes import Classes
 
 class QuestBot(discord.Client):
 
@@ -22,13 +22,14 @@ class QuestBot(discord.Client):
 
         # Print the bot (name) and the server (name, ID)
         print(f"{self.user.name} est connecté au serveur suivant :\n"
-            f"{server.name} (ID : {server.id})")
+            f"{server.name} (ID : {server.id})\n")
 
         # Print the current members (name, ID) of the server
-        print(f"\nMembres du serveur :")
+        print(f"Membres du serveur :")
         for member in server.members:
-            if member.id != self.user.id:
-                print(f" - {member.name} ({member.id})")
+            # Don't print bots informations
+            if not member.bot :
+                print(f" - {member.name} -> {member.id}")
 
     # Performs certain actions depending on the command typed by the discord user.
     async def on_message(self, message: discord.Message):
