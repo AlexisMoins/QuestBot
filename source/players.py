@@ -5,8 +5,7 @@ from .utils import Utils
 class Players():
 
     @staticmethod
-    # Returns an array of Players() built from the
-    # data in resources/players.yaml and resources/players/*
+    # Returns an array of Players() built from the data in the resources folder
     def get_array() -> dict:
         players = dict()
         # Get the players' ID from a file
