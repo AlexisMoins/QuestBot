@@ -2,6 +2,7 @@
 import discord
 from source.utils import Utils
 from source.players import Players
+from source.classes import Classes
 
 class QuestBot(discord.Client):
 
@@ -14,6 +15,7 @@ class QuestBot(discord.Client):
         self.players = Players.get_array()
         self.reactions = Utils.import_data_from("resources/reactions.yaml")
 
+    #
     async def on_ready(self):
         # Get the server informations
         server = discord.utils.get(self.guilds, name=self.SERVER)
@@ -22,10 +24,11 @@ class QuestBot(discord.Client):
         print(f"{self.user.name} est connecté au serveur suivant :\n"
             f"{server.name} (ID : {server.id})")
 
-        # Print the current members of the server
+        # Print the current members (name, ID) of the server
         print(f"\nMembres du serveur :")
         for member in server.members:
-            print(f" - {member.name}")
+            if member.id != self.user.id:
+                print(f" - {member.name} ({member.id})")
 
     # Performs certain actions depending on the command typed by the discord user.
     async def on_message(self, message: discord.Message):
@@ -48,10 +51,18 @@ class QuestBot(discord.Client):
             # Add reactions to the bot's message
             for index in range(3):
                 await bot_message.add_reaction(self.reactions["selectors"][index])
+            # Change the reaction message ID saved in Classes.py
+            Classes.selection_message_id = bot_message.id
 
 
     # Get the reaction to a message and its author
     async def on_raw_reaction_add(self, reaction: discord.Reaction):
-        # Check wether the message the user is reacting to is the good one
-        if reaction.message_id != self.reaction_message_id:
+        # Ensure the bot's reactions are not taken into account
+        if reaction.user_id == self.user.id:
             return
+
+        # Check wether the user is already a player
+        if reaction.user_id not in self.players:
+            # Ensure the message being reacted to is the one for class selection
+            if reaction.message_id == Classes.selection_message_id:
+                print("\nCréation d'un nouveau personnage demandée")

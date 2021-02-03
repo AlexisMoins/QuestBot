@@ -9,14 +9,13 @@ class Players():
     # data in resources/players.yaml and resources/players/*
     def get_array() -> dict:
         players = dict()
-
-        # Get the players' name from a file
-        names = Utils.import_data_from("resources/players.yaml")
+        # Get the players' ID from a file
+        ID_list = Utils.import_data_from("resources/players.yaml")
 
         # Ensure names is a non empty dictionary
-        if bool(names):
-            for name in names:
+        if bool(ID_list):
+            for ID in ID_list:
                 # Add the discord user ID to the players dict with its
                 # corresponding Player instance
-                players[name] = Players.deserialize(name)
+                players[ID] = Players.deserialize(ID)
         return players

@@ -1,0 +1,7 @@
+# Reaction emojis
+
+selectors: ['1️⃣', '2️⃣', '3️⃣']
+
+previous: '◀️'
+
+next: '▶️'
