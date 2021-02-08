@@ -1,0 +1,40 @@
+# Messages
+nouveau:
+  title: "Séléction de la classe :"
+  description: Les classes suivantes sont disponibles dans le jeu. Réagissez avec l'emoji correspondant pour que cette dernière vous soit attribuée."
+  color: 0xff9300
+  fields:
+    1:
+      name: "1. Barbare"
+      value: "spécialisé dans la force"
+      inline: False
+    2:
+      name: "2. Magicien"
+      value: "spécialisé dans l'intelligence"
+      inline: False
+    3:
+      name: "3. Archer"
+      value: "spécialisé dans la dexterité"
+      inline: False
+  range: 3
+  reaction: ["1️⃣", "2️⃣", "3️⃣"]
+
+info joueur:
+  title: "Séléction de la classe :"
+  description: Les classes suivantes sont disponibles dans le jeu. Réagissez avec l'emoji correspondant pour que cette dernière vous soit attribuée."
+  color: 0xff9300
+  author:
+    
+  fields:
+    1:
+      name: "1. Barbare"
+      value: "spécialisé dans la force"
+      inline: False
+    2:
+      name: "2. Magicien"
+      value: "spécialisé dans l'intelligence"
+      inline: False
+    3:
+      name: "3. Archer"
+      value: "spécialisé dans la dexterité"
+      inline: False

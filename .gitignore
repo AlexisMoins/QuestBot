@@ -3,3 +3,6 @@
 
 # Dossier de cache python
 __pycache__
+
+# Dossier contenant les données des joueurs
+data/*

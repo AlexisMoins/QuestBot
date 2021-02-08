@@ -1,16 +1,17 @@
 # Quest Bot
-import os
 import discord
 
+from os import getenv, system
 from dotenv import load_dotenv
 from source.questbot import QuestBot
 
 
 load_dotenv()
 # Get discord variables from .env file
-TOKEN = os.getenv("DISCORD_TOKEN")
-SERVER = os.getenv("DISCORD_SERVER")
+TOKEN = getenv("DISCORD_TOKEN")
+SERVER = getenv("DISCORD_SERVER")
 
+system("clear")
 intents = discord.Intents.default()
 intents.members = True
 

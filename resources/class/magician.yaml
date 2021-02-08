@@ -1,0 +1,19 @@
+role: "magicien"
+level: 1
+experience: 1
+max experience: 10
+
+statistics:
+  health: 50
+  max health: 50
+  energy: 10
+  max energy: 10
+  strength: 8
+  resistance: 4
+  intelligence: 4
+  knowledge: 4
+
+gold: 20
+inventory:
+
+spells:
